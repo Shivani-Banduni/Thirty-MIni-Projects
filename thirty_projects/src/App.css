@@ -1,0 +1,23 @@
+.quiz-mian-box{
+  border: 2px solid black;
+  height: 60vh;
+  width: 30%;
+  margin: 20vh auto auto auto;
+  border-radius: 2vh;
+  background-color: rgb(80, 80, 163);
+} 
+.quiz-div1{
+  border: 2px solid black;
+  height: 60vh;
+  width: 50vh;
+  border-radius: 2vh;
+  justify-content:space-between;
+  display: flex;
+}
+.quiz-div1 div{
+  border: 2px solid red;
+}
+.quiz-div1 div span{
+  font-size: large;
+  font-weight: bolder;
+}
