@@ -1,16 +1,19 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
-import { Link} from 'react-router-dom';
+import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 const Quiz = () => {
 const [q,setques]=React.useState(0)
 const [marks,setmarks]=React.useState(0)
+const [iscolr,setiscolr]=React.useState(false)
+
 
 console.log(q)
 
 const ques = [
     {
+        id:1,
         question: 'Which is the hottest planet in our solar system?',
         answers: [
             { ans: 'Jupiter', isCorrect: false },
@@ -20,6 +23,7 @@ const ques = [
         ]
     },
     {
+        id:2,
         question: 'Who is the ceo of Tesla',
         answers: [
             { ans: 'Mark Zukerberg', isCorrect: false },
@@ -29,6 +33,7 @@ const ques = [
         ]
     },
     {
+        id:3,
         question: 'Who is the Babu',
         answers: [
             { ans: 'Mahatma Gandhi', isCorrect: true },
@@ -38,7 +43,17 @@ const ques = [
         ]
     },
     {
+        id:4,
         question: 'Which element has the highest melting point',
+        answers: [
+            { ans: 'Carbon', isCorrect: false },
+            { ans: 'Aluminium', isCorrect: false },
+            { ans: 'Helium', isCorrect: false },
+            { ans: 'Tungsten', isCorrect: true }
+        ]
+    },
+    {
+        question: 'hfsdjhkj',
         answers: [
             { ans: 'Carbon', isCorrect: false },
             { ans: 'Aluminium', isCorrect: false },
@@ -48,19 +63,39 @@ const ques = [
     },
     // Add more question objects if needed
 ];
+const navigate=useNavigate()
 
-function handleclick(status){
+function handleclick(e,status){
 console.log(status) 
-if(status==true){
+if(status){
 setmarks(marks+1)
+setiscolr(true);
 }
+
+console.log(marks,'marks')
 }
-// const handleNavigate =()=>{
-//     setques(q+1);
-//     if(q==3){
-//         navigate("/quesans")
-//     }
-// }
+
+
+useEffect(() => {
+    if (q>=4) {
+      navigate('/quizans');
+    }
+  }, [q, ques.length, navigate]);
+
+
+
+  
+
+  function handleNextClick(isCorrect) {
+    if (isCorrect) {
+      setmarks(marks + 1);
+    }
+    setques(q + 1);
+  }
+  
+
+
+
 
     return (
         <Box className='quiz-mian-box'  
@@ -90,13 +125,19 @@ setmarks(marks+1)
 
 
 <div>
-    {ques[q].answers.map((e)=>{return <div style={{display:'flex', flexDirection:'column', marginTop:'3vh'}}><Button onClick={()=>handleclick(e.isCorrect)} size='large' variant='contained'>{e.ans}</Button></div>})}
+    {ques[q].answers.map((e)=>{return <div key={e.ans} style={{display:'flex', flexDirection:'column', marginTop:'3vh'}}>
+    <Button style={{ color:'white',  background: iscolr && e.isCorrect ? 'green' : iscolr && !e.isCorrect ? 'red' : 'grey'}}
+   
+
+    onClick={()=>handleclick(e,e.isCorrect)} size='large' sx={{ color: 'blue' }} variant='outlined'>{e.ans}</Button></div>})}
+
+
 </div>
  </div>
 
  <div style={{display:'flex', gap:'6vh'}}>
      <Button  disabled={q<=0} onClick={()=>setques(q-1)} variant='contained'>Pre</Button>
-     <Button  onClick={()=>setques(q+1)} variant='contained'>Next</Button>
+     <Button  onClick={() => handleNextClick()} variant='contained'>Next</Button>
 {/* {q===3? <Link to='/quizans'></Link>:''} */}
  </div>
              
@@ -105,3 +146,8 @@ setmarks(marks+1)
 }
 
 export default Quiz;
+
+
+
+
+    // onClick={()=>handleclick(e,e.isCorrect)} size='large' sx={{ color: 'blue' }} variant='outlined'>{e.ans}</Button></div>})}
