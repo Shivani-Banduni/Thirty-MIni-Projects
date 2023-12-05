@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    gap: 5%;
+    background-color: rgb(240, 191, 191);
+    justify-content: center;
+    align-items: center;
+
+}
+button{
+    margin-left: 50%;
+    width: 10vh;
+    margin-bottom: 2%;
+}

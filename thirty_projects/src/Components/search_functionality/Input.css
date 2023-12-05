@@ -1,0 +1,34 @@
+.input_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    margin-top: 3%;
+    width: 30vh;
+    height: 5vh;
+    font-size: large;
+    border-radius: 2vh;
+    padding: 1vh;
+}
+.lower-div{
+    /* border: 2px solid red; */
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 2%;
+}
+button{
+    height: 7vh;
+    width: 15vh;
+    margin-top: 5vh;
+border-radius: 2vh;
+    margin-left: 3%;
+font-size: large;
+
+}.single_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+    font-size: large;
+}

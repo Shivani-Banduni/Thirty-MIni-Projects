@@ -1,0 +1,78 @@
+.outer-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    margin-top: 3%;
+    border: 2px solid black;
+    height: 60vh;
+    width: 25%;
+    padding-left: 10%;
+    border-radius: 3%;
+    background-color: rgb(180, 180, 236);
+
+}
+button{
+    margin-left: 9vh;
+    background-color: rgb(58, 58, 238);
+    color: white;
+}.success{
+    background-color: green;
+    color: white;
+    height: 10%;
+    width: 90%;
+    margin-right: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+b{
+    font-size: large;
+}
+
+
+@media only screen and (max-width: 620px) {
+    .form {
+      background-color: lightblue;
+      height: fit-content;
+    }
+    h2{
+        font-size: smaller;
+    }
+    input{
+        width: 100px;
+        height: 10px;
+        font-size: x-small;
+    }
+    button {
+        height: 20px;
+        width: 100px;
+        font-size:small;
+        margin-left: 5%;
+    }
+  }
+
+
+  @media only screen and (min-width: 621px) {
+    .form {
+      background-color: lightblue;
+      height: fit-content;
+    }
+    h2{
+        font-size: small;
+    }
+    input{
+        width: 200px;
+        height: 20px;
+        font-size: small;
+    }
+    button {
+        height: 40px;
+        width: 200px;
+        font-size:small;
+        margin-left: 5%;
+    }
+  }
